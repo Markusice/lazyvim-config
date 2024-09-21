@@ -7,6 +7,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- add Jenkinsfile* to be recognized as groovy
+vim.filetype.add({ pattern = { ["Jenkinsfile.*"] = "groovy" } })
+
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
